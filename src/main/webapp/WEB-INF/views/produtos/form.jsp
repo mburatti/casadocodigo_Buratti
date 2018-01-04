@@ -13,14 +13,17 @@
 	        <label>Título</label>
 	        <input type="text" name="titulo" />
 	    </div>
+	    <p/>
 	    <div>
 	        <label>Descrição</label>
 	        <textarea rows="10" cols="20" name="descricao"></textarea>
 	    </div>
+	    <p/>
 	    <div>
 	        <label>Páginas</label>
 	        <input type="text" name="paginas" />
 	    </div>
+	    <p/>
 	    <button type="submit">Cadastrar</button>
 	</form>
 </body>

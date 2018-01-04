@@ -1,8 +1,6 @@
-package br.com.casadocodigo.loja.controlers;
+package br.com.casadocodigo.conf;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
-import br.com.casadocodigo.conf.JPAConfiguration;
 
 public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer{
 
