@@ -1,4 +1,5 @@
 package br.com.casadocodigo.loja.models;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -49,7 +50,7 @@ public class Produto {
         return "Produto [titulo=" + titulo + 
         		", descricao=" + descricao + 
         		", paginas=" + paginas + 
-        		"preços: " + precos + 
+        		//"preços: " + precos + 
         		"]";
     }
     

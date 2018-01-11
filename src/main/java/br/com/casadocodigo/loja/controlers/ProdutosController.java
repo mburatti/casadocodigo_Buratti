@@ -34,7 +34,7 @@ public class ProdutosController {
 	@RequestMapping(value="/produtos", method=RequestMethod.GET)
 	public ModelAndView listar() {		
 		List<Produto> produtos = produtoDao.listar();
-		System.out.println(produtos.toString());
+		//System.out.println(produtos.toString());
 		ModelAndView modelAndView = new ModelAndView("/produtos/lista");
 		modelAndView.addObject("produtos",produtos);
 		return modelAndView;
