@@ -18,7 +18,7 @@
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
-        <version>6.2.10</version>
+        <version>6.2.11</version>
     </dependency>
     <dependency>
         <groupId>org.apache.tomcat</groupId>
@@ -96,7 +96,7 @@
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-orm</artifactId>
-    <version>6.2.10</version>
+    <version>6.2.11</version>
 </dependency>
 <dependency>
     <groupId>mysql</groupId>
