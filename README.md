@@ -1,73 +1,79 @@
-# Casa do Código - Buratti
+# SRV Produto
 
-Este projeto é uma aplicação web Java baseada em Spring MVC, criada como estudo do livro Casa do Código. Ela expõe uma pequena loja online com páginas para listar produtos, cadastrar produtos e exibir confirmação de cadastro.
+This repository contains a single Quarkus-only application. The legacy Spring MVC/Tomcat code and the nested Quarkus module were removed so the root project is now the canonical runtime.
 
-## O que a aplicação faz
+If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
 
-- Exibe a página inicial da loja.
-- Lista produtos cadastrados.
-- Permite o cadastro de novos produtos com validação básica.
-- Usa Spring MVC, JPA/Hibernate e MySQL para o fluxo de cadastro e persistência.
+## Running the application in dev mode
 
-## Tecnologias principais
+You can run your application in dev mode that enables live coding using:
 
-- Java
-- Maven
-- Spring MVC
-- Hibernate / JPA
-- MySQL
-- JSP
+```shell script
+./mvnw compile quarkus:dev
+```
 
-## Como executar localmente com Docker Compose
+> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
 
-1. Certifique-se de ter Docker e Docker Compose instalados.
-2. Copie o arquivo de exemplo de variáveis de ambiente:
+## Packaging and running the application
 
-   ```bash
-   cp .env.example .env
-   ```
+The application can be packaged using:
 
-3. Ajuste as variáveis em `.env` se precisar alterar usuário, senha ou nome do banco.
-4. Suba a stack com:
+```shell script
+./mvnw package
+```
 
-   ```bash
-   docker compose up --build
-   ```
+It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
+Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
 
-5. A aplicação ficará disponível em `http://localhost:8080` e o MySQL em `localhost:3306`.
+The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
 
-## Persistência de dados e logs
+If you want to build an _über-jar_, execute the following command:
 
-Para fazer com que tudo que for gravado no banco e os logs permaneçam mesmo após reinicializações, a stack usa volumes Docker:
+```shell script
+./mvnw package -Dquarkus.package.jar.type=uber-jar
+```
 
-- `mysql-data` — mantém os arquivos do banco MySQL em `/var/lib/mysql`.
-- `app-logs` — armazena logs da aplicação em `/var/log/casadocodigo`.
+The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
 
-### Pontos importantes para manter o estado persistente
+## Creating a native executable
 
-- Não remova os volumes nomeados definidos em `docker-compose.yml`.
-- Se quiser preservar dados entre reinstalações, mantenha o volume `mysql-data` e não execute `docker compose down -v` (este comando remove os volumes).
-- Para visualizar logs do app:
+You can create a native executable using:
 
-  ```bash
-  docker compose logs -f app
-  ```
+```shell script
+./mvnw package -Dnative
+```
 
-- Para revisar o banco:
+Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
 
-  ```bash
-  docker compose exec mysql mysql -u casadocodigo -pcasadocodigo casadocodigo
-  ```
+```shell script
+./mvnw package -Dnative -Dquarkus.native.container-build=true
+```
 
-## Estrutura do projeto
+You can then execute your native executable with: `./target/srv-produto-1.0.0-SNAPSHOT-runner`
 
-- `src/main/java` — classes Java da aplicação.
-- `src/main/webapp` — páginas JSP e recursos web.
-- `pom.xml` — configuração do Maven e dependências.
-- `docker-compose.yml` — orquestração da aplicação com MySQL.
-- `Dockerfile` — imagem da aplicação web.
-- `.env.example` — exemplo de configuração de ambiente.
+If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
 
-## Observações
+## Related Guides
 
-Este repositório foi usado como estudo de arquitetura web Java e pode servir como base para evoluções futuras, como containerização, upgrade de runtime Java ou modernização para versões mais recentes do ecossistema.
+- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplified JPA/Hibernate data access layer with active record and repository patterns
+- JDBC Driver - MySQL ([guide](https://quarkus.io/guides/datasource)): Connect to the MySQL database via JDBC
+- SmallRye OpenAPI ([guide](https://quarkus.io/guides/openapi-swaggerui)): Generate OpenAPI schemas and serve Swagger UI for REST API documentation
+- REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
+
+## Provided Code
+
+### Hibernate ORM
+
+Create your first JPA entity
+
+[Related guide section...](https://quarkus.io/guides/hibernate-orm)
+
+
+[Related Hibernate with Panache section...](https://quarkus.io/guides/hibernate-orm-panache)
+
+
+### REST
+
+Easily start your REST Web Services
+
+[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)

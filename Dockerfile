@@ -6,12 +6,15 @@ COPY src ./src
 
 RUN mvn -B -DskipTests package
 
-FROM tomcat:10.1-jre21-temurin
-WORKDIR /usr/local/tomcat/webapps
+FROM eclipse-temurin:21-jre
+WORKDIR /work
 
-COPY --from=build /workspace/target/casadocodigo.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=build /workspace/target/quarkus-app/lib/ /work/lib/
+COPY --from=build /workspace/target/quarkus-app/app/ /work/app/
+COPY --from=build /workspace/target/quarkus-app/quarkus/ /work/quarkus/
+COPY --from=build /workspace/target/quarkus-app/quarkus-run.jar /work/
 
-ENV CATALINA_OPTS=""
+ENV JAVA_OPTS=""
 EXPOSE 8080
 
-CMD ["catalina.sh", "run"]
+CMD ["java", "-jar", "/work/quarkus-run.jar"]

@@ -34,6 +34,13 @@ services:
       DB_USER: casadocodigo
       DB_PASSWORD: casadocodigo
       JAVA_OPTS: "-Duser.timezone=UTC"
+      QUARKUS_HTTP_PORT: "8080"
+      QUARKUS_HTTP_HOST: "0.0.0.0"
+      QUARKUS_DATASOURCE_DB_KIND: mysql
+      QUARKUS_DATASOURCE_USERNAME: casadocodigo
+      QUARKUS_DATASOURCE_PASSWORD: casadocodigo
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://mysql:3306/casadocodigo
+      QUARKUS_DATASOURCE_DEVSERVICES_ENABLED: "false"
     ports:
       - "8080:8080"
     volumes:

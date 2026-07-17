@@ -1,9 +1,4 @@
-target
-.git
-.github
-.vscode
-.settings
-.idea
-*.iml
-.DS_Store
-README.md
+target/
+.git/
+.vscode/
+.idea/

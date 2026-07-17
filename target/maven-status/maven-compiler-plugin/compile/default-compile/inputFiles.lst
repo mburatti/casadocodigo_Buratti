@@ -1,10 +1,6 @@
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\loja\controlers\ProdutosController.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\loja\models\Produto.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\loja\models\Preco.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\daos\ProdutoDAO.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\conf\AppWebConfiguration.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\conf\ServletSpringMVC.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\conf\JPAConfiguration.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\loja\controlers\HomeController.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\loja\models\TipoPreco.java
-c:\workspace\casadocodigo_Buratti\src\main\java\br\com\casadocodigo\validators\ProdutoValidation.java
+/Users/mjv/Workspace/casadocodigo_Buratti/src/main/java/br/com/casadocodigo/GreetingResource.java
+/Users/mjv/Workspace/casadocodigo_Buratti/src/main/java/br/com/casadocodigo/MyEntity.java
+/Users/mjv/Workspace/casadocodigo_Buratti/src/main/java/br/com/casadocodigo/RootResource.java
+/Users/mjv/Workspace/casadocodigo_Buratti/src/main/java/br/com/casadocodigo/domain/HealthResource.java
+/Users/mjv/Workspace/casadocodigo_Buratti/src/main/java/br/com/casadocodigo/domain/Produto.java
+/Users/mjv/Workspace/casadocodigo_Buratti/src/main/java/br/com/casadocodigo/domain/ProdutoResource.java

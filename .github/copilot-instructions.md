@@ -1,0 +1,6 @@
+- Be extremely concise. Code output is priority #1.
+- DO NOT rewrite unmodified code. Use placeholders like `// ... existing code ...` for context.
+- DO NOT write boilerplate, setups, or markdown explanations unless explicitly requested.
+- No comments explaining what the code does (the code should be self-documenting).
+- Use modern syntax, minimal abstractions, and avoid over-engineering.
+- DO EXPLANATIONS, code only
