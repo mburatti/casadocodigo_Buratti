@@ -1,6 +1,6 @@
 package br.com.casadocodigo.conf;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

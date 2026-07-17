@@ -27,6 +27,12 @@
         <scope>provided</scope>
     </dependency>
     <dependency>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>6.0.0</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
         <groupId>javax.servlet.jsp</groupId>
         <artifactId>jsp-api</artifactId>
         <version>2.1</version>
@@ -75,7 +81,7 @@
     <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
-        <version>1.2.28</version>
+        <version>1.2.17</version>
         <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -87,6 +93,11 @@
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
     <version>6.0.0.Alpha8</version>
+</dependency>
+<dependency>
+    <groupId>jakarta.persistence</groupId>
+    <artifactId>jakarta.persistence-api</artifactId>
+    <version>3.1.0</version>
 </dependency>
 <dependency>
     <groupId>org.hibernate.javax.persistence</groupId>
@@ -104,14 +115,14 @@
     <version>8.0.28</version>
 </dependency>
 <dependency>
-    <groupId>javax.validation</groupId>
-    <artifactId>validation-api</artifactId>
-    <version>1.0.0.GA</version>
+    <groupId>jakarta.validation</groupId>
+    <artifactId>jakarta.validation-api</artifactId>
+    <version>3.0.2</version>
 </dependency>
 <dependency>
-    <groupId>org.hibernate</groupId>
+    <groupId>org.hibernate.validator</groupId>
     <artifactId>hibernate-validator</artifactId>
-    <version>7.0.1.Final</version>
+    <version>8.0.1.Final</version>
 </dependency>
 </dependencies>
 </project>

@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: casadocodigo-mysql
+    environment:
+      MYSQL_DATABASE: casadocodigo
+      MYSQL_USER: casadocodigo
+      MYSQL_PASSWORD: casadocodigo
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: casadocodigo-app
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: casadocodigo
+      DB_USER: casadocodigo
+      DB_PASSWORD: casadocodigo
+      JAVA_OPTS: "-Duser.timezone=UTC"
+    ports:
+      - "8080:8080"
+    volumes:
+      - app-logs:/var/log/casadocodigo
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+  app-logs:
