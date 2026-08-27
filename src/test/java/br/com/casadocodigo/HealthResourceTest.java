@@ -16,7 +16,7 @@ class HealthResourceTest {
     @Test
     void healthEndpointReturnsStatusUp() {
         given()
-            .when().get("/health")
+            .when().get("/api/health")
             .then()
             .statusCode(200)
             .body("status", is("UP"));
@@ -25,7 +25,7 @@ class HealthResourceTest {
     @Test
     void healthEndpointReturnsServiceName() {
         given()
-            .when().get("/health")
+            .when().get("/api/health")
             .then()
             .statusCode(200)
             .body("service", is("srv-produto"));

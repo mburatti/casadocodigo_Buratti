@@ -12,7 +12,7 @@ class GreetingResourceTest {
     @Test
     void healthEndpointReportsServiceStatus() {
         given()
-            .when().get("/health")
+            .when().get("/api/health")
             .then()
             .statusCode(200)
             .body(containsString("UP"))
@@ -20,18 +20,19 @@ class GreetingResourceTest {
     }
 
     @Test
-    void rootEndpointRespondsWithLandingMessage() {
+    void rootEndpointRespondsWithApiInfo() {
         given()
-            .when().get("/")
+            .when().get("/api")
             .then()
             .statusCode(200)
-            .body(containsString("Quarkus API Console"));
+            .body(containsString("srv-produto"))
+            .body(containsString("/api"));
     }
 
     @Test
     void helloEndpointRespondsWithIdentity() {
         given()
-            .when().get("/hello")
+            .when().get("/api/hello")
             .then()
             .statusCode(200)
             .body(is("Hello from Quarkus REST"));

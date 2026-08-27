@@ -9,53 +9,19 @@ class RootResourceTest {
     private final RootResource resource = new RootResource();
 
     @Test
-    void landingPageReturnsValidHtmlDocument() {
-        // Arrange & Act
-        String html = resource.landingPage();
+    void rootEndpointReturnsApiMetadata() {
+        String payload = resource.landingPage();
 
-        // Assert
-        assertNotNull(html);
-        assertTrue(html.contains("<!DOCTYPE html>"));
-        assertTrue(html.contains("</html>"));
+        assertNotNull(payload);
+        assertTrue(payload.contains("\"service\": \"srv-produto\""));
+        assertTrue(payload.contains("\"apiBase\": \"/api\""));
+        assertTrue(payload.contains("\"health\": \"/api/health\""));
     }
 
     @Test
-    void landingPageContainsExpectedTitle() {
-        // Arrange & Act
-        String html = resource.landingPage();
+    void rootEndpointAdvertisesProductApi() {
+        String payload = resource.landingPage();
 
-        // Assert
-        assertTrue(html.contains("SRV Produto API Explorer"));
-    }
-
-    @Test
-    void landingPageAdvertisesProdutosEndpoint() {
-        // Arrange & Act
-        String html = resource.landingPage();
-
-        // Assert — products endpoint must be referenced in the page
-        assertTrue(html.contains("/produtos"));
-    }
-
-    @Test
-    void landingPageContainsProductCreationForm() {
-        // Arrange & Act
-        String html = resource.landingPage();
-
-        // Assert — form elements must be present for product creation
-        assertTrue(html.contains("id=\"product-form\""));
-        assertTrue(html.contains("name=\"titulo\""));
-        assertTrue(html.contains("name=\"descricao\""));
-        assertTrue(html.contains("name=\"paginas\""));
-    }
-
-    @Test
-    void landingPageContainsLinksToOtherEndpoints() {
-        // Arrange & Act
-        String html = resource.landingPage();
-
-        // Assert — navigation links to peer endpoints must be present
-        assertTrue(html.contains("/health"));
-        assertTrue(html.contains("/hello"));
+        assertTrue(payload.contains("\"produtos\": \"/api/produtos\""));
     }
 }

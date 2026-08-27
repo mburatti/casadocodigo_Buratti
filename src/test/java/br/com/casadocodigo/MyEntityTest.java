@@ -1,6 +1,5 @@
 package br.com.casadocodigo;
 
-import br.com.casadocodigo.MyEntity;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
